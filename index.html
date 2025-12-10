@@ -1,191 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/24bce78210.js" crossorigin="anonymous"></script>
-    <title>Home - jonahlee.github.io</title>
-    <style>
-      /* --- Minimal Dark Gray & Blue Scheme --- */
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - jonahlee.github.io</title>
+  <script src="https://kit.fontawesome.com/24bce78210.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --color-background: #1e1e1e;
+      --color-text: #f0f0f0;
+      --color-accent: #0f90e6;
+      --color-header-bg: #2d2d2d;
+    }
 
-      /* Variables for easy color management */
-      :root {
-        --color-background: #1e1e1e; /* Very dark gray */
-        --color-text: #f0f0f0;       /* Off-white for text */
-        --color-accent: #0f90e6;     /* Bright blue for links/accents */
-        --color-header-bg: #2d2d2d;  /* Slightly lighter dark gray for header/nav */
-      }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      /* Basic Reset and Body Styles */
-      body {
-        font-family: 'Arial', sans-serif;
-        background-color: var(--color-background);
-        color: var(--color-text);
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        display: flex; /* Use flex for the main structure */
-        flex-direction: column;
-        align-items: center; /* Center content block horizontally */
-      }
+    #header {
+      background-color: var(--color-header-bg);
+      color: var(--color-accent);
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+      border-bottom: 2px solid var(--color-accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      /* Layout Containers */
-      #header {
-        background-color: var(--color-header-bg);
-        color: var(--color-accent);
-        padding: 20px 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 2px solid var(--color-accent);
-      }
-      #navigation {
-        background-color: var(--color-header-bg);
-        width: 100%;
-        text-align: center;
-      }
-      #content {
-        max-width: 800px; /* Limit the width for readability */
-        width: 90%;
-        padding: 40px 20px;
-        margin-top: 20px;
-        background-color: #252525; /* Darker background for content area */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        border-radius: 8px;
-      }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      background: #E6E7ED;
+      border: 4px solid var(--color-text);
+      border-radius: 50%;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .profile-pic img {
+      max-height: 100%;
+      max-width: 100%;
+    }
 
-      /* Typography */
-      h1, h2 {
-        color: var(--color-accent);
-        font-weight: 400;
-        margin-top: 0;
-        margin-bottom: 10px;
-      }
-      h1 {
-        font-size: 2.5em;
-        letter-spacing: 2px;
-      }
-      h2 {
-        border-bottom: 1px solid var(--color-accent);
-        padding-bottom: 5px;
-        margin-top: 30px;
-        font-size: 1.7em;
-      }
-      p {
-        margin-bottom: 15px;
-      }
-      /* Profile Picture */
-      #header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      div.profile-pic {
-          display: block;
-          width: 160px;
-          height: 160px;
-          background: #E6E7ED;
-          text-align: center;
-          align-content: center;
-          align-items: center;
-          border-radius: 50%;
-          -moz-border-radius: 50%;
-          -webkit-border-radius: 50%;
-          border: 4px solid var(--color-text);
-          border-radius: 50%; /* Makes it circular */
-          margin-bottom: 15px;
-          overflow: hidden; /* To clip the image inside the circle */
-          display: block; /* Ensures it takes up space */
-      }
-      div.profile-pic>img {
-        max-height: 100%;
-        max-width: 100%;
-      }
+    #navigation {
+      background-color: var(--color-header-bg);
+      width: 100%;
+      text-align: center;
+    }
+    #navigation ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    #navigation li {
+      margin: 0 15px;
+    }
+    #navigation a {
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 10px 15px;
+      display: block;
+      transition: color 0.3s, background-color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #navigation a:hover {
+      color: var(--color-accent);
+      background-color: #3a3a3a;
+      border-radius: 4px;
+    }
 
-      /* Navigation Styling */
-      #navigation ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex; /* Align links horizontally */
-        justify-content: center;
-      }
-      #navigation li {
-        margin: 0 15px;
-      }
-      #navigation a {
-        text-decoration: none;
-        color: var(--color-text);
-        padding: 10px 15px;
-        display: block;
-        transition: color 0.3s, background-color 0.3s;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      #navigation a:hover,
-      #navigation a:focus {
-        color: var(--color-accent);
-        background-color: #3a3a3a; /* Slight hover effect */
-        border-radius: 4px;
-      }
-      /* Link Styles */
-      a {
-        color: var(--color-accent);
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .contact-links {
-        display: flex;
-        justify-content: center;
-        gap: 30px; /* Space between links */
-        padding: 10px 0;
-      }
-      .contact-links a {
-        color: var(--color-text);
-        font-size: 1.1em;
-        transition: color 0.3s;
-      }
-      .contact-links a:hover {
-        color: var(--color-accent);
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-      <div id="header">
-        <div class="profile-pic">
-          <img src="assets/ubc-solar-headshot-2025.png">
-        </div>
-        <h1>Jonah Lee</h1>
-      </div>
-      <div id="navigation">
-         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="assets/resume-2025-11-29.pdf" target="_blank">Resume</a></li> 
-          <li><a href="assets/portfolio-2025-11-29.pdf" target="_blank">Portfolio</a></li> 
-        </ul> 
-      </div>
-      <div class="content-block" id="content">
-        <h2>About Me</h2>
-        <p>
-          Hey there! My name is Jonah and I'm a UBC Engineering Physics Co-op student in my third year.<br/><br/>
-          I'm also a Race Strategy Co-Lead at <a href="https://ubcsolar.com">UBC Solar</a>, an Engineering Design Team which builds and races solar powered cars.
-        </p>
-        <h2>Contact & Links</h2>
-        <div class="contact-links">
-            <a href="mailto:jonahjacqueslee@gmail.com">
-                <span><i class="fa-solid fa-envelope"></i></i></span> jonahjacqueslee@gmail.com
-            </a>
-            <a href="https://linkedin.com/in/jonah-j-lee" target="_blank">
-                <span><i class="fa-brands fa-linkedin"></i></i></span> LinkedIn
-            </a>
-            <a href="https://github.com/jonahjlee" target="_blank">
-                <span><i class="fa-brands fa-github"></i></span> GitHub
-            </a>
-        </div>
-      </div>
-      <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 Jonah Lee</p>
-  </body>
-</html>
+    .content-block {
+      max-width: 800px;
+      width: 90%;
+      padding: 40px 20px;
+      margin-top: 20px;
+      background-color: #252525;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+    }
+
+    h1, h2 {
+      color: var(--color-accent);
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 2.5em; letter-spacing: 2px; }
+    h2 {
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 5px;
+      margin-top: 30px;
+      font-size: 1.7em;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid var(--color-text);
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--color-header-bg);
+      color: var(--color-accent);
+    }
+    tr:nth-child(even) {
+      background-color: #333;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
+    }
+    .contact-links a {
+      color: var(--color-text);
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    .contact-links a:hover {
+      color: var(--color-accent);
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="profile-pic">
+      <img src="assets/ubc-solar-headshot-2025.png">
+    </div>
+    <h1>Jonah Lee</h1>
+  </div>
+
+  <div id="navigation">
+    <ul>
+      <li><a href="#" onclick="showTab('home')">Home</a></li>
+      <li><a href="#" onclick="showTab('courses')">Courses</a></li>
+      <li><a href="assets/resume-2025-11-29.pdf" target="_blank">Resume</a></li>
+      <li><a href="assets/portfolio-2025-11-29.pdf" target="_blank">Portfolio</a></li>
+    </ul>
+  </div>
+
+  <!-- Home Content -->
+  <div class="content-block tab-content" id="home">
+    <h2>About Me</h2>
+    <p>
+      Hey there! My name is Jonah and I'm a UBC Engineering Physics Co-op student in my third year.<br/><br/>
+      I'm also a Race Strategy Co-Lead at <a href="https://ubcsolar.com">UBC Solar</a>, an Engineering Design Team which builds and races solar powered cars.
+    </p>
+
+    <h2>Education</h2>
+    <h3>About Engineering Physics</h3>
+    <p>
+      Engineering Physics is a fully accredited engineering program at UBC with a strong focus on Physics and Math.
+      In the Co-op program and in Engineering Physics' practical lab courses, I am interested in solving practical engineering
+      problems from first-principles approaches. For more on Engineering Physics, see the
+      <a href="https://www.engphys.ubc.ca/about/" target="_blank">program website</a> or find a list of some of my courses
+      <a href="#" onclick="showTab('courses')">here</a>.
+    </p>
+
+    <h2>Contact & Links</h2>
+    <div class="contact-links">
+      <a href="mailto:jonahjacqueslee@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://linkedin.com/in/jonah-j-lee" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/jonahjlee" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </div>
+
+  <!-- Courses Content -->
+  <div class="content-block tab-content" id="courses" style="display:none;">
+    <h2>Courses</h2>
+    <table>
+      <tr>
+        <th>Course Code</th>
+        <th>Course Title</th>
+        <th>Grade</th>
+      </tr>
+      <tr><td>PHYS_V 301</td><td>Electricity and Magnetism</td><td>TBD</td></tr>
+      <tr><td>ELEC_V 221</td><td>Signals and Systems</td><td>TBD</td></tr>
+      <tr><td>MECH_V 325</td><td>Machine Design</td><td>TBD</td></tr>
+      <tr><td>PHYS_V 304</td><td>Introduction to Quantum Mechanics</td><td>TBD</td></tr>
+      <tr><td>MECH_V 260</td><td>Introduction to Mechanics of Materials</td><td>A-</td></tr>
+      <tr><td>ENPH_V 253</td><td>Introduction to Instrument Design</td><td>A+</td></tr>
+      <tr><td>ENPH_V 257</td><td>Heat and Thermodynamics</td><td>A+</td></tr>
+      <tr><td>ENPH_V 270</td><td>Mechanics II</td><td>A-</td></tr>
+      <tr><td>PHYS_V 250</td><td>Introduction to Modern Physics</td><td>A+</td></tr>
+      <tr><td>CPEN_V 221</td><td>Software Construction I</td><td>A</td></tr>
+      <tr><td>ELEC_V 204</td><td>Linear Circuits</td><td>A+</td></tr>
+      <tr><td>ENPH_V 259</td><td>Experimental Techniques</td><td>A+</td></tr>
+      <tr><td>MATH_V 217</td><td>Multivariable and Vector Calculus</td><td>A</td></tr>
+      <tr><td>MATH_V 255</td><td>Ordinary Differential Equations</td><td>A+</td></tr>
+    </table>
+  </div>
+
+  <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 Jonah Lee</p>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(div => div.style.display = 'none');
+      document.getElementById(tabId).style.display = 'block';
+    }
+  </script>
